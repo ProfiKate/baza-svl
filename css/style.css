@@ -924,10 +924,6 @@ a.contact-row__value:hover { color: var(--oak); }
   .section { padding: 72px 0; }
   .section__head { margin-bottom: 48px; }
 
-  .header {
-    background: linear-gradient(to bottom, rgba(10,8,6,.88), rgba(10,8,6,.1));
-  }
-
   .header__tagline { display: none; }
   .nav {
     position: fixed;
@@ -946,6 +942,15 @@ a.contact-row__value:hover { color: var(--oak); }
   .burger { display: flex; }
 
   .hero { padding-top: 80px; }
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 110px;
+    background: linear-gradient(to bottom, rgba(0,0,0,.55) 0%, transparent 100%);
+    z-index: 1;
+    pointer-events: none;
+  }
   .hero__title { font-size: clamp(2.8rem, 12vw, 5rem); }
 
   .about__grid { grid-template-columns: 1fr; }
