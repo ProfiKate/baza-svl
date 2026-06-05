@@ -925,8 +925,7 @@ a.contact-row__value:hover { color: var(--oak); }
   .section__head { margin-bottom: 48px; }
 
   .header__tagline { display: none; }
-  .header__logo { position: relative; z-index: 2; }
-  .burger { display: flex; position: relative; z-index: 2; }
+  .burger { display: flex; }
   .nav {
     position: fixed;
     top: 76px; left: 0; right: 0;
@@ -936,9 +935,8 @@ a.contact-row__value:hover { color: var(--oak); }
     padding: 24px;
     gap: 4px;
     transform: translateY(-200%);
-    transition: transform .3s ease;
+    transition: transform var(--tr);
     border-bottom: 1px solid rgba(200,169,110,.15);
-    z-index: 1;
   }
   .nav.open { transform: translateY(0); }
   .nav__link { padding: 12px 16px; font-size: .9rem; width: 100%; }
