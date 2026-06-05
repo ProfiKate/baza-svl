@@ -1,20 +1,3 @@
-// ===== AOS init =====
-AOS.init({
-  duration: 600,
-  easing: 'ease-out-cubic',
-  once: true,
-  offset: 60,
-});
-
-// ===== Header scroll =====
-const header = document.getElementById('header');
-const onScroll = () => {
-  header.classList.toggle('scrolled', window.scrollY > 40);
-  highlightNav();
-};
-window.addEventListener('scroll', onScroll, { passive: true });
-onScroll();
-
 // ===== Burger menu =====
 const burger = document.getElementById('burger');
 const nav    = document.getElementById('nav');
@@ -32,6 +15,25 @@ nav.querySelectorAll('.nav__link').forEach(link => {
     document.body.style.overflow = '';
   });
 });
+
+// ===== AOS init =====
+try {
+  AOS.init({
+    duration: 600,
+    easing: 'ease-out-cubic',
+    once: true,
+    offset: 60,
+  });
+} catch (e) {}
+
+// ===== Header scroll =====
+const header = document.getElementById('header');
+const onScroll = () => {
+  header.classList.toggle('scrolled', window.scrollY > 40);
+  highlightNav();
+};
+window.addEventListener('scroll', onScroll, { passive: true });
+onScroll();
 
 // ===== Active nav link on scroll =====
 const sections = document.querySelectorAll('section[id]');

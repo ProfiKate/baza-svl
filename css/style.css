@@ -927,8 +927,8 @@ a.contact-row__value:hover { color: var(--oak); }
   .header__tagline { display: none; }
   .burger { display: flex; }
   .nav {
-    position: fixed;
-    top: 76px; left: 0; right: 0;
+    position: absolute;
+    top: 100%; left: 0; right: 0;
     background: rgba(20,18,16,.98);
     backdrop-filter: blur(16px);
     flex-direction: column;
