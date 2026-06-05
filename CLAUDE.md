@@ -5,6 +5,9 @@
 Одностраничный лендинг для деревообрабатывающей производственной базы **BAZA SVL**.  
 Стек: HTML + CSS + Vanilla JS. Никаких фреймворков, никакого билда — открывается напрямую в браузере.
 
+**Развёрнут на GitHub Pages:** https://profikate.github.io/baza-svl/  
+Репозиторий: https://github.com/ProfiKate/baza-svl
+
 Полное описание проекта — в [project.md](project.md). ТЗ — в [ТЗ.pdf](ТЗ.pdf).
 
 ---
@@ -18,6 +21,7 @@
 | `js/script.js` | Вся логика: скролл, бургер, AOS, форма |
 
 Логотип: `Лого белый текст.png` (хедер + футер).  
+OG-изображение для мессенджеров: `og-image.png` (копия `Лого вертикаль.png` с ASCII-именем).  
 Медиафайлы (PNG, JPG, MP4) лежат в корне — не переносить и не переименовывать.  
 Новые файлы не создавать без явной просьбы пользователя.
 
@@ -67,6 +71,26 @@ Scroll-анимации через **AOS.js 2.3.4** (CDN). Атрибуты на
 - Email: `vikwoodminsk@gmail.com`
 - Instagram: `@baza_svl`
 - Адрес: Минская обл., Узденский р-н, д. Стальбовщина, ул. Центральная, 9
+
+---
+
+## Мобильный хедер и бургер-меню
+
+На `≤768px` `.nav` переключается в `position: absolute; top: 100%` (относительно хедера, не viewport).  
+В закрытом состоянии: `transform: translateY(-200%); pointer-events: none`.  
+В открытом (`.nav.open`): `transform: translateY(0); pointer-events: auto`.
+
+Использовать именно `position: absolute`, а не `position: fixed` — иначе iOS Safari баг (fixed внутри fixed с backdrop-filter).
+
+В `script.js` код бургера идёт **первым** (до AOS.init), AOS обёрнут в `try/catch` — чтобы бургер работал даже если CDN не загрузился.
+
+---
+
+## Open Graph (превью в мессенджерах)
+
+Теги в `<head>` (`og:title`, `og:description`, `og:image`, `twitter:card` и др.).  
+Изображение: `og-image.png` (ASCII-имя обязательно — GitHub Pages не отдаёт кириллические имена файлов через OG).  
+URL сайта в тегах: `https://profikate.github.io/baza-svl/`
 
 ---
 
